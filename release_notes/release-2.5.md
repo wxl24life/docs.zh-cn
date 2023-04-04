@@ -8,9 +8,6 @@
 
 - 优化查询规划阶段物化视图查询改写的性能，降低约 70% 的规划耗时。[#19579](https://github.com/StarRocks/starrocks/pull/19579)
 - 优化类型推断，如果查询 `SELECT sum(CASE WHEN XXX)FROM xxx;` 中包含常量 `0`，例如 `SELECT sum(CASE WHEN k1 = 1 THEN v1 ELSE 0 END) FROM test;`，则预聚合自动开启以加速查询。[#19474](https://github.com/StarRocks/starrocks/pull/19474)
-- 新增如下主键模型的表 Tablet 状态的监控指标。
-  - `show proc '/statistic/'` 的返回结果中，新增指标列 `ErrorStateTabletNum`，表示主键模型表中状态错误的 Tablet 数量。
-  - `show proc '/statistic/<DbId>'` 的返回结果中，新增指标列 `ErrorStateTabletNum`，表示该数据库的主键模型表中状态错误的 Tablet ID。执行 `SHOW TABLET <tablet_id>` ，根据返回结果中的`DetailCmd` 的内容，查看错误的 Replica ID，然后进行排查。https://github.com/StarRocks/starrocks/pull/19517
 - 支持使用 `SHOW CREATE VIEW` 查看物化视图的创建语句。[#19999](https://github.com/StarRocks/starrocks/pull/19999)
 - BE 节点之间单次 bRPC 请求支持传输超过 2 GB 的数据包。[#20283](https://github.com/StarRocks/starrocks/pull/20283) [#20230](https://github.com/StarRocks/starrocks/pull/20230)
 
