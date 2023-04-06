@@ -21,7 +21,7 @@
 - 物化视图的列名大小写敏感， 建表时 `PROPERTIES` 中列名大小写错误，仍然返回建表成功，未能返回报错提示，并且基于该表的物化视图查询无法改写。[#19780](https://github.com/StarRocks/starrocks/pull/19780)
 - 物化视图查询改写后，执行计划中可能产生基于分区列的无效谓词，影响查询速度。[#19784](https://github.com/StarRocks/starrocks/pull/19784)
 - 导入数据至新创建的分区后，物化视图查询可能无法改写。[#20323](https://github.com/StarRocks/starrocks/pull/20323)
-- 创建物化视图时配置 `"storage_medium" = "SSD"` ，导致物化视图刷新失败。[#19539]((https://github.com/StarRocks/starrocks/pull/19539) [#19626](https://github.com/StarRocks/starrocks/pull/19626)
+- 创建物化视图时配置 `"storage_medium" = "SSD"` ，导致物化视图刷新失败。[#19539](https://github.com/StarRocks/starrocks/pull/19539) [#19626](https://github.com/StarRocks/starrocks/pull/19626)
 - 主键模型的表可能会并行 Compaction。[#19692](https://github.com/StarRocks/starrocks/pull/19692)
 - 大量 DELETE 操作后 Compaction 不及时。[#19623](https://github.com/StarRocks/starrocks/pull/19623)
 - 如果语句的表达式中含有多个低基数列时，表达式改写可能出错，进而导致低基数全局字典优化不生效。[#20161](https://github.com/StarRocks/starrocks/pull/20161)
